@@ -11,5 +11,6 @@ namespace Core.Interfaces
         TEntity Update(TEntity entity);
         TEntity Create(TEntity entity);
         void Delete(TEntity entity, bool softDelete = true);
+        void SaveChanges();
     }
 }

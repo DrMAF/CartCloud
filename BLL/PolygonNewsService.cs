@@ -10,9 +10,9 @@ namespace BLL
     {
         readonly IPolygonBaseService _polygonService;
         readonly ILogger<PolygonNewsService> _logger;
-        IUnitOfWork<PolygonNews, string> _ployUnitOfWork;
+        IUnitOfWork _ployUnitOfWork;
 
-        public PolygonNewsService(IUnitOfWork<PolygonNews, string> polyUnitOfWork, 
+        public PolygonNewsService(IUnitOfWork polyUnitOfWork, 
         IPolygonBaseService polygonBaseService,
         ILogger<PolygonNewsService> logger) : base(polyUnitOfWork)
         {

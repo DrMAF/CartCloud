@@ -2,10 +2,10 @@
 
 namespace Core.Interfaces
 {
-    public interface IUnitOfWork<TEntity, TPrimary> : IDisposable where TEntity : BaseEntity<TPrimary>
+    public interface IUnitOfWork : IDisposable
     {
-        IBaseRepository<TEntity, TPrimary> Repository { get; }
-        void Commit();
-        Task CommitAsync();
+        IBaseRepository<TEntity, TPrimary> GetRepository<TEntity, TPrimary>() where TEntity : BaseEntity<TPrimary>;
+        void SaveChanges();
+        Task SaveChangesAsync();
     }
 }
