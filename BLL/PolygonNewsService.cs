@@ -10,13 +10,15 @@ namespace BLL
     {
         readonly IPolygonBaseService _polygonService;
         readonly ILogger<PolygonNewsService> _logger;
+        IUnitOfWork<PolygonNews, string> _ployUnitOfWork;
 
-        public PolygonNewsService(IBaseRepository<PolygonNews, string> repository, 
+        public PolygonNewsService(IUnitOfWork<PolygonNews, string> polyUnitOfWork, 
         IPolygonBaseService polygonBaseService,
-        ILogger<PolygonNewsService> logger) : base(repository)
+        ILogger<PolygonNewsService> logger) : base(polyUnitOfWork)
         {
             _polygonService = polygonBaseService;
             _logger = logger;
+            _ployUnitOfWork = polyUnitOfWork;
         }
 
         public async Task<List<PolygonNews>> SyncPolygonNews()

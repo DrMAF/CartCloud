@@ -29,7 +29,7 @@ namespace CartCloud
         public static IServiceCollection CongigureReposAndServices(this IServiceCollection services)
         {
             services.AddScoped(typeof(IBaseRepository<,>), typeof(BaseRepository<,>));
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped(typeof(IUnitOfWork<,>), typeof(UnitOfWork<,>));
 
             services.AddScoped(typeof(IBaseService<,>), typeof(BaseService<,>));
 

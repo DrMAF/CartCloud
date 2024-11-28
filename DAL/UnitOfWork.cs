@@ -3,21 +3,19 @@ using Core.Interfaces;
 
 namespace DAL
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork<TEntity, TPrimary> : IUnitOfWork<TEntity, TPrimary> where TEntity : BaseEntity<TPrimary>
     {
         readonly AppDbContext _context;
 
-        public readonly IBaseRepository<Cart, int> CartRepository;
-        public readonly IBaseRepository<PolygonNews, string> PolygonNewsRepository;
+        public IBaseRepository<TEntity, TPrimary> Repository { get; set; }
 
-        public UnitOfWork(AppDbContext context)
+        public UnitOfWork(AppDbContext context, IBaseRepository<TEntity, TPrimary> repository)
         {
             _context = context;
-            CartRepository = new BaseRepository<Cart, int>(_context);
-            PolygonNewsRepository = new BaseRepository<PolygonNews, string>(_context);
+            Repository = repository;
         }
 
-        public void Save()
+        public void Commit()
         {
             _context.SaveChanges();
         }
@@ -33,7 +31,7 @@ namespace DAL
                     _context.Dispose();
                 }
             }
-            
+
             disposed = true;
         }
 
@@ -43,7 +41,7 @@ namespace DAL
             GC.SuppressFinalize(this);
         }
 
-        public Task SaveAsync()
+        public Task CommitAsync()
         {
             throw new NotImplementedException();
         }

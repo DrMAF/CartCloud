@@ -30,7 +30,7 @@ namespace DAL
         public TEntity Create(TEntity entity)
         {
             _dbSet.Add(entity);
-            _context.SaveChanges();
+            //_context.SaveChanges();
 
             return entity;
         }
@@ -48,7 +48,7 @@ namespace DAL
                 _context.Attach(entity);
                 _context.Remove(entity);
 
-                _context.SaveChanges();
+                //_context.SaveChanges();
             }
         }
 
@@ -69,7 +69,7 @@ namespace DAL
                     _context.Attach(entity);
                     _context.Remove(entity);
 
-                    _context.SaveChanges();
+                    //_context.SaveChanges();
                 }
             }
         }
@@ -93,7 +93,7 @@ namespace DAL
                         _context.Attach(entity);
                         _context.Remove(entity);
 
-                        _context.SaveChanges();
+                        //_context.SaveChanges();
                     }
                 }
             }
@@ -113,7 +113,7 @@ namespace DAL
 
             _context.Entry(entity).State = EntityState.Modified;
 
-            _context.SaveChanges();
+            //_context.SaveChanges();
 
             return entity;
         }

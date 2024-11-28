@@ -35,7 +35,7 @@ namespace DAL
         }
 
         public DbSet<PolygonNews> PolygonNews { get; set; }
-        public DbSet<Cart> User { get; set; }
+        public DbSet<Cart> Carts { get; set; }
         //public DbSet<PolygonPublisher> PolygonPublisher { get; set; }
     }
 }

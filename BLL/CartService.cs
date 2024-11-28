@@ -8,10 +8,12 @@ namespace BLL
     public class CartService : BaseService<Cart, int>, ICartService
     {
         readonly ILogger<CartService> _logger;
+        //readonly IUnitOfWork<Cart, int> _cartUnitOfWork;
 
-        public CartService(IBaseRepository<Cart, int> repository, ILogger<CartService> logger) : base(repository)
+        public CartService(IUnitOfWork<Cart, int> cartUnitOfWork, ILogger<CartService> logger) : base(cartUnitOfWork)
         {
             _logger = logger;
+            //_cartUnitOfWork = cartUnitOfWork;
         }
 
         public List<Cart> GetCarts()
@@ -26,6 +28,5 @@ namespace BLL
                 return null;
             }
         }
-
     }
 }

@@ -57,7 +57,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGroup("api/users").MapAccount();
-app.MapGroup("api/polygon").MapPolygon();
+app.MapGroup("api/Users").MapUserEndpoints();
+app.MapGroup("api/Polygon").MapPolygonEndPoints();
+app.MapGroup("api/Carts").MapCartEndpoints();
 
 app.Run();

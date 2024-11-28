@@ -6,41 +6,48 @@ namespace BLL
 {
     public class BaseService<TEntity, TPrimary> : IBaseService<TEntity, TPrimary> where TEntity : BaseEntity<TPrimary>
     {
-        readonly IBaseRepository<TEntity, TPrimary> _repository;
+        readonly IUnitOfWork<TEntity, TPrimary> _unitOfWork;
 
-        public BaseService(IBaseRepository<TEntity, TPrimary> repository)
+        public BaseService(IUnitOfWork<TEntity, TPrimary> unitOfWork)
         {
-            _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         public TEntity Create(TEntity entity)
         {
-            return _repository.Create(entity);
+            _unitOfWork.Repository.Create(entity);
+            _unitOfWork.Commit();
+
+            return entity;
         }
 
         public void Delete(TEntity entity, bool softDelete = true)
         {
-            _repository.Delete(entity, softDelete);
+            _unitOfWork.Repository.Delete(entity, softDelete);
+            _unitOfWork.Commit();
         }
 
         public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
         {
-            return _repository.Get(predicate);
+            return _unitOfWork.Repository.Get(predicate);
         }
 
         public TEntity? GetById(TPrimary id)
         {
-            return _repository.GetById(id);
+            return _unitOfWork.Repository.GetById(id);
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            return _repository.GetAll();
+            return _unitOfWork.Repository.GetAll();
         }
 
         public TEntity Update(TEntity entity)
         {
-            return _repository.Update(entity);
+            _unitOfWork.Repository.Update(entity);
+            _unitOfWork.Commit();
+
+            return entity;
         }
     }
 }

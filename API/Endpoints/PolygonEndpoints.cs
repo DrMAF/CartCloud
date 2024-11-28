@@ -4,7 +4,7 @@ namespace API.Endpoints
 {
     public static class PolygonEndpoints
     {
-        public static IEndpointRouteBuilder MapPolygon(this IEndpointRouteBuilder endpoint)
+        public static IEndpointRouteBuilder MapPolygonEndPoints(this IEndpointRouteBuilder endpoint)
         {
             endpoint.MapPost("sendEmails", SendEmails);
 

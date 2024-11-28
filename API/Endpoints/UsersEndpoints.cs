@@ -8,7 +8,7 @@ namespace API.Endpoints
 {
     public static class UsersEndpoints
     {
-        public static IEndpointRouteBuilder MapAccount(this IEndpointRouteBuilder endpoint)
+        public static IEndpointRouteBuilder MapUserEndpoints(this IEndpointRouteBuilder endpoint)
         {
             endpoint.MapGet("", GetUsers);
             endpoint.MapGet("getById", GetUserById);
