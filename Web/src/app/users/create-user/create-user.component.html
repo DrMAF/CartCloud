@@ -1,0 +1,72 @@
+<div class="profile-demo card-container">
+  <div class="k-card custom-card submit-form">
+    <div *ngIf="!submitted" class="card-row">
+      <div class="card-column">
+        <div class="avatar-title-container">
+          <div class="k-skeleton skeleton-avatar"></div>
+          <h4 *ngIf="!editMode" class="k-h4">Create user</h4>
+          <h4 *ngIf="editMode" class="k-h4">Update user</h4>
+
+        </div>
+        <div class="component-container">
+          <kendo-label text="First name">
+            <kendo-textbox id="firstName" required [(ngModel)]="user.firstName" name="firstName">
+            </kendo-textbox>
+          </kendo-label>
+
+          <div class="component-container">
+            <kendo-label text="Last name">
+              <kendo-textbox id="lastName" required [(ngModel)]="user.lastName" name="lastName">
+              </kendo-textbox>
+            </kendo-label>
+          </div>
+
+          <div class="component-container">
+            <kendo-label text="Email">
+              <kendo-textbox id="email" required [(ngModel)]="user.email" name="email"></kendo-textbox>
+            </kendo-label>
+          </div>
+
+          <div class="component-container">
+            <kendo-label text="Phone number">
+              <kendo-textbox id="phoneNumber" required [(ngModel)]="user.phoneNumber" name="phoneNumber"></kendo-textbox>
+            </kendo-label>
+          </div>
+
+          <div *ngIf="error" class="component-container">
+            <kendo-formerror>{{error}}</kendo-formerror>
+
+          </div>
+
+          <div *ngIf="!editMode" class="component-container">
+            <button kendoButton themeColor="success" [look]="'outline'" (click)="saveUser()">Submit</button>
+          </div>
+
+          <div *ngIf="editMode" class="component-container">
+            <button kendoButton themeColor="primary" [look]="'outline'" (click)="onDeleteUser()">Delete</button>
+            <button kendoButton themeColor="success" [look]="'outline'" (click)="saveUser()">Update</button>
+            <button kendoButton [look]="'outline'" (click)="onCancel()">Cancel</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="submitted" class="card-row">
+      <div class="card-column">
+        <div class="component-container">
+          <div *ngIf="!editMode">
+            <h4>User is submitted successfully!</h4>
+            <button kendoButton themeColor="success" [look]="'outline'" (click)="restUser()">Add another</button>
+          </div>
+
+          <div *ngIf="editMode">
+            <h4>User updated successfully!</h4>
+            <button kendoButton themeColor="success" [look]="'outline'" (click)="goToList()">Go to list</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

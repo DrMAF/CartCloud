@@ -1,0 +1,93 @@
+<div>
+  @if(currentUser.id){
+  <h4>User details</h4>
+  <div>
+    <label>
+      <strong>First name:</strong>
+    </label>
+    {{ currentUser.firstName }}
+  </div>
+  <div>
+    <label>
+      <strong>Last name:</strong>
+    </label>
+    {{ currentUser.lastName }}
+  </div>
+  <div>
+    <label>
+      <strong>Email:</strong>
+    </label>
+    {{ currentUser.email }}
+  </div>
+  <div>
+    <label>
+      <strong>Phone:</strong>
+    </label>
+    {{ currentUser.phoneNumber }}
+  </div>
+  
+  <button kendoButton themeColor="success" [look]="'outline'" (click)="goUpdate()">Edit</button>
+
+  }
+  @else if(itemsCount > 0){
+  <div>
+    <kendo-label text="Please click on a user to show details.">
+    </kendo-label>
+  </div>
+  }
+</div>
+
+<!--<ng-template #editable>
+  <div *ngIf="currentUser.id" class="edit-form">
+    <h4>Edit user details</h4>
+    <div class="card-row">
+      <div class="card-column">
+        <div class="avatar-title-container">
+          <div class="k-skeleton skeleton-avatar"></div>
+        </div>
+        <div class="component-container">
+          <kendo-label text="First name">
+            <kendo-textbox id="firstName" required [(ngModel)]="currentUser.firstName" name="firstName">
+            </kendo-textbox>
+          </kendo-label>
+        </div>
+
+        <div class="component-container">
+          <kendo-label text="Last name">
+            <kendo-textbox id="lastName" required [(ngModel)]="currentUser.lastName" name="lastName">
+            </kendo-textbox>
+          </kendo-label>
+        </div>
+
+        <div class="component-container">
+          <kendo-label text="Email">
+            <kendo-textbox id="email" required [(ngModel)]="currentUser.email" name="email"></kendo-textbox>
+          </kendo-label>
+        </div>
+
+        <div class="component-container">
+          <kendo-label text="Phone number">
+            <kendo-textbox id="phoneNumber" required [(ngModel)]="currentUser.phoneNumber" name="phoneNumber"></kendo-textbox>
+          </kendo-label>
+        </div>
+
+        <div class="component-container">
+
+          <button kendoButton themeColor="primary" [look]="'outline'" (click)="onDeleteUser()">Delete</button>
+
+          <button kendoButton themeColor="success" [look]="'outline'" (click)="updateUser()">Update</button>
+
+          <button kendoButton [look]="'outline'" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentUser.id">
+    <br />
+    <p>User cannot be found.</p>
+  </div>
+</ng-template>-->
