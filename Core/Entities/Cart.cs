@@ -1,6 +1,6 @@
 ﻿namespace Core.Entities
 {
-    public class Cart : BaseEntity<int>
+    public class Cart : BaseEntity
     {
     }
 }

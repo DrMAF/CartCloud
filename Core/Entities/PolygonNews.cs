@@ -1,6 +1,6 @@
 ﻿namespace Core.Entities
 {
-    public class PolygonNews : BaseEntity<string>
+    public class PolygonNews : BaseEntity
     {
         public string Title { get; set; }
         public string PublisherName { get; set; }

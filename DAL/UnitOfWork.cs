@@ -3,13 +3,13 @@ using Core.Interfaces;
 
 namespace DAL
 {
-    public class UnitOfWork<TEntity, TPrimary> : IUnitOfWork<TEntity, TPrimary> where TEntity : BaseEntity<TPrimary>
+    public class UnitOfWork<TEntity> : IUnitOfWork<TEntity> where TEntity : BaseEntity
     {
         readonly AppDbContext _context;
 
-        public IBaseRepository<TEntity, TPrimary> Repository { get; set; }
+        public IBaseRepository<TEntity> Repository { get; set; }
 
-        public UnitOfWork(AppDbContext context, IBaseRepository<TEntity, TPrimary> repository)
+        public UnitOfWork(AppDbContext context, IBaseRepository<TEntity> repository)
         {
             _context = context;
             Repository = repository;

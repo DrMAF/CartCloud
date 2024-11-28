@@ -11,7 +11,7 @@
 
     public class NewsResult
     {
-        public string id { get; set; }
+        public int id { get; set; }
         public Publisher publisher { get; set; }
         public string title { get; set; }
         public string author { get; set; }

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace DAL
 {
-    public class BaseRepository<TEntity, TPrimary> : IBaseRepository<TEntity, TPrimary> where TEntity : BaseEntity<TPrimary>
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {
         public AppDbContext _context { get; set; }
 
@@ -22,7 +22,7 @@ namespace DAL
             return _dbSet.AsNoTracking().Where(predicate);
         }
 
-        public TEntity? GetById(TPrimary id)
+        public TEntity? GetById(int id)
         {
             return _dbSet.Find(id);
         }
@@ -52,7 +52,7 @@ namespace DAL
             }
         }
 
-        public void Delete(TPrimary id, bool softDelete = true)
+        public void Delete(int id, bool softDelete = true)
         {
             var entity = _dbSet.Find(id);
 

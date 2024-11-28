@@ -4,11 +4,11 @@ using System.Linq.Expressions;
 
 namespace BLL
 {
-    public class BaseService<TEntity, TPrimary> : IBaseService<TEntity, TPrimary> where TEntity : BaseEntity<TPrimary>
+    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity
     {
-        readonly IUnitOfWork<TEntity, TPrimary> _unitOfWork;
+        readonly IUnitOfWork<TEntity> _unitOfWork;
 
-        public BaseService(IUnitOfWork<TEntity, TPrimary> unitOfWork)
+        public BaseService(IUnitOfWork<TEntity> unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -32,7 +32,7 @@ namespace BLL
             return _unitOfWork.Repository.Get(predicate);
         }
 
-        public TEntity? GetById(TPrimary id)
+        public TEntity? GetById(int id)
         {
             return _unitOfWork.Repository.GetById(id);
         }

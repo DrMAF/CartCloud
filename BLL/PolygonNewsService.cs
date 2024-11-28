@@ -6,13 +6,13 @@ using StockMarket.Interfaces;
 
 namespace BLL
 {
-    public class PolygonNewsService : BaseService<PolygonNews, string>, IPolygonNewsService
+    public class PolygonNewsService : BaseService<PolygonNews>, IPolygonNewsService
     {
         readonly IPolygonBaseService _polygonService;
         readonly ILogger<PolygonNewsService> _logger;
-        IUnitOfWork<PolygonNews, string> _ployUnitOfWork;
+        IUnitOfWork<PolygonNews> _ployUnitOfWork;
 
-        public PolygonNewsService(IUnitOfWork<PolygonNews, string> polyUnitOfWork, 
+        public PolygonNewsService(IUnitOfWork<PolygonNews> polyUnitOfWork, 
         IPolygonBaseService polygonBaseService,
         ILogger<PolygonNewsService> logger) : base(polyUnitOfWork)
         {

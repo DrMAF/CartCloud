@@ -3,9 +3,9 @@ using System.Linq.Expressions;
 
 namespace Core.Interfaces
 {
-    public interface IBaseRepository<TEntity, TPrimary> where TEntity : BaseEntity<TPrimary>
+    public interface IBaseRepository<TEntity> where TEntity : BaseEntity
     {
-        TEntity? GetById(TPrimary id);
+        TEntity? GetById(int id);
         IQueryable<TEntity> GetAll();
         IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> predicate);
         TEntity Update(TEntity entity);

@@ -28,13 +28,13 @@ namespace CartCloud
 
         public static IServiceCollection CongigureReposAndServices(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IBaseRepository<,>), typeof(BaseRepository<,>));
-            services.AddScoped(typeof(IUnitOfWork<,>), typeof(UnitOfWork<,>));
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 
-            services.AddScoped(typeof(IBaseService<,>), typeof(BaseService<,>));
+            services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 
-            var appIServices = typeof(IBaseService<,>).Assembly.GetTypes().Where(s => s.Name.ToLower().EndsWith("service") && s.IsInterface).ToList();
-            var appServices = typeof(BaseService<,>).Assembly.GetTypes().Where(s => s.Name.ToLower().EndsWith("service") && s.IsClass).ToList();
+            var appIServices = typeof(IBaseService<>).Assembly.GetTypes().Where(s => s.Name.ToLower().EndsWith("service") && s.IsInterface).ToList();
+            var appServices = typeof(BaseService<>).Assembly.GetTypes().Where(s => s.Name.ToLower().EndsWith("service") && s.IsClass).ToList();
 
             foreach (var appIService in appIServices)
             {
