@@ -1,39 +1,21 @@
 ﻿using Core.Entities;
 using Core.Interfaces;
-using System.Collections;
 
 namespace DAL
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork<TEntity, TPrimary> : IUnitOfWork<TEntity, TPrimary> where TEntity : BaseEntity<TPrimary>
     {
         readonly AppDbContext _context;
-        private Hashtable _repositories;
 
-        //public IBaseRepository<TEntity, TPrimary> Repository { get; set; }
+        public IBaseRepository<TEntity, TPrimary> Repository { get; set; }
 
-        public UnitOfWork(AppDbContext context)
+        public UnitOfWork(AppDbContext context, IBaseRepository<TEntity, TPrimary> repository)
         {
             _context = context;
+            Repository = repository;
         }
 
-        public IBaseRepository<TEntity, TPrimary> GetRepository<TEntity, TPrimary>() where TEntity : BaseEntity<TPrimary>
-        {
-            if (_repositories == null) _repositories = new Hashtable();
-
-            var type = typeof(TEntity).Name;
-
-            if (!_repositories.ContainsKey(type))
-            {
-                var repositoryType = typeof(BaseRepository<,>);
-                var repositoryInstance = Activator.CreateInstance(repositoryType.MakeGenericType(typeof(TEntity), typeof(TPrimary)), _context);
-
-                _repositories.Add(type, repositoryInstance);
-            }
-
-            return (IBaseRepository<TEntity, TPrimary>)_repositories[type];
-        }
-
-        public void SaveChanges()
+        public void Commit()
         {
             _context.SaveChanges();
         }
@@ -59,7 +41,7 @@ namespace DAL
             GC.SuppressFinalize(this);
         }
 
-        public Task SaveChangesAsync()
+        public Task CommitAsync()
         {
             throw new NotImplementedException();
         }

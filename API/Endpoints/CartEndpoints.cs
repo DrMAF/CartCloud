@@ -1,5 +1,4 @@
 ﻿using Core.Entities;
-using Core.Interfaces;
 using Core.Interfaces.Services;
 
 namespace API.Endpoints
@@ -14,18 +13,16 @@ namespace API.Endpoints
             return endpoint;
         }
 
-        private static IResult GetCarts(/*ICartService*/ IBaseService<Cart, int> cartService)
+        private static IResult GetCarts(ICartService cartService)
         {
-            var carts = cartService.GetAll();
-            //var carts = cartService.GetCarts();
+            var carts = cartService.GetCarts();
 
             return Results.Ok(carts);
         }
 
-        private static IResult CreateCart(/*ICartService*/ IBaseService<Cart, int> cartService, string name)
+        private static IResult CreateCart(ICartService cartService, string name)
         {
             var cart = cartService.Create(new Cart { Name = name, Description = name });
-            cartService.SaveChanges();
 
             return Results.Ok(cart);
         }

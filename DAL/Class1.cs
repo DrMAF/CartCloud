@@ -26,8 +26,7 @@
 //    private readonly JWTHelper _jwtHelper;
 //    public IUserRepository Users { get; set; }
 //    public IItemTransactionRepository ItemTransactions { get; set; }
-//    public UnitOfWork(DataContext context, IHttpContextAccessor httpContextAccessor, IMapper mapper,
-//    UserManager<ApplicationUser> userManager, JWTHelper jwtHelper)
+//    public UnitOfWork(DataContext context, IHttpContextAccessor httpContextAccessor, IMapper mapper, UserManager<ApplicationUser> userManager, JWTHelper jwtHelper)
 //    {
 //        _mapper = mapper;
 //        _context = context;

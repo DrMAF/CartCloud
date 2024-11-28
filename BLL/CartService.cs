@@ -8,19 +8,18 @@ namespace BLL
     public class CartService : BaseService<Cart, int>, ICartService
     {
         readonly ILogger<CartService> _logger;
-        readonly IUnitOfWork _cartUnitOfWork;
+        //readonly IUnitOfWork<Cart, int> _cartUnitOfWork;
 
-        public CartService(IUnitOfWork cartUnitOfWork, ILogger<CartService> logger) : base(cartUnitOfWork)
+        public CartService(IUnitOfWork<Cart, int> cartUnitOfWork, ILogger<CartService> logger) : base(cartUnitOfWork)
         {
             _logger = logger;
-            _cartUnitOfWork = cartUnitOfWork;
+            //_cartUnitOfWork = cartUnitOfWork;
         }
 
         public List<Cart> GetCarts()
         {
             try
             {
-                var kk = _cartUnitOfWork.GetRepository<Cart, int>().GetAll();
                 return GetAll().ToList();
             }
             catch (Exception ex)
