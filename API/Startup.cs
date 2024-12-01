@@ -26,11 +26,10 @@ namespace CartCloud
             return services;
         }
 
-        public static IServiceCollection CongigureReposAndServices(this IServiceCollection services)
+        public static IServiceCollection CongigureReposAndServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
-
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 
             var appIServices = typeof(IBaseService<>).Assembly.GetTypes().Where(s => s.Name.ToLower().EndsWith("service") && s.IsInterface).ToList();

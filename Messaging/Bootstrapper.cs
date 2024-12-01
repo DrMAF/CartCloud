@@ -7,7 +7,7 @@ namespace Messaging
 {
     public static class Bootstrapper
     {
-        public static IServiceCollection AddMessagingServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfigureMessagingServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IEmailService, EmailService>();
 

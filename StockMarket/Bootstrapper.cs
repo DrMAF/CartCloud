@@ -9,7 +9,7 @@ namespace StockMarket.Bootstrapper
 {
     public static class Bootstrapper
     {
-        public static IServiceCollection AddPolygonProviderServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection CongigurePolygonProviderServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IPolygonBaseService, PolygonBaseService>();
 

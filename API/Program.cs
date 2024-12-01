@@ -18,11 +18,10 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(defa
 
 builder.Services.AddSwaggerGen();
 
-builder.Services
-    .ConfigureAuthorization(builder.Configuration)
-    .CongigureReposAndServices()
-    .AddPolygonProviderServices(builder.Configuration)
-    .AddMessagingServices(builder.Configuration);
+builder.Services.ConfigureAuthorization(builder.Configuration)
+                .CongigureReposAndServices(builder.Configuration)
+                .CongigurePolygonProviderServices(builder.Configuration)
+                .ConfigureMessagingServices(builder.Configuration);
 
 builder.Services.AddHostedService<PolygonNewsUpdateService>();
 
