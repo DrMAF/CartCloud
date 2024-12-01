@@ -8,5 +8,11 @@ export const routes: Routes = [
   { path: "users", component: UsersListComponent },
   { path: 'users/:id', component: UserDetailsComponent },
   { path: "create", component: CreateUserComponent },
-  { path: "update/:id", component: CreateUserComponent }
+  { path: "update/:id", component: CreateUserComponent },
+  { path: "accounts", loadChildren: () => import(`./modules/accounts/accounts.module`).then(r => r.AccountsModule)  }
+
+    //{ path: 'Customers', canActivate: [AuthGuard], component: HomeComponent, loadChildren: () => import('./features/bar-cloud-ng/bar-cloud-ng.module').then(m => m.BarCloudNgModule) }
+    //{ path: 'account', loadChildren: () => import(`./account/accounts.module`).then(r => r.AccountsModule) },
+
+
 ];
