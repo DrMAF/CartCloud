@@ -12,7 +12,7 @@ import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
   imports: [RouterOutlet, RouterModule,
     KENDO_NAVIGATION, KENDO_ICONS, KENDO_SVGICON, KENDO_INDICATORS, KENDO_LAYOUT],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'CartCloud';

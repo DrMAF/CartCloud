@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   standalone: true,
   imports: [FormsModule, NgIf, KENDO_INPUTS, LabelModule, KENDO_BUTTONS],
   templateUrl: './create-user.component.html',
-  styleUrl: './create-user.component.css'
+  styleUrl: './create-user.component.scss'
 })
 
 export class CreateUserComponent {

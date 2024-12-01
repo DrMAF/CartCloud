@@ -18,7 +18,7 @@ import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
     KENDO_GRID, KENDO_POPUP, ColumnComponent, KENDO_BUTTONS, LabelModule,
     KENDO_DROPDOWNS, KENDO_INPUTS],
   templateUrl: './users-list.component.html',
-  styleUrl: './users-list.component.css'
+  styleUrl: './users-list.component.scss'
 })
 export class UsersListComponent implements OnInit {
 

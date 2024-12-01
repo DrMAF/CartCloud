@@ -13,7 +13,7 @@ import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
   imports: [FormsModule, RouterModule,
     LabelModule, KENDO_BUTTONS, KENDO_INPUTS],
   templateUrl: './user-details.component.html',
-  styleUrl: './user-details.component.css'
+  styleUrl: './user-details.component.scss'
 })
 
 export class UserDetailsComponent {
