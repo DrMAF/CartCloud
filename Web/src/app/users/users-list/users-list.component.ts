@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PaginatedResult, User } from '../../../shared/models/user.model';
 import { UserService } from '../../../shared/services/user.service';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
 import { UserDetailsComponent } from '../user-details/user-details.component';
-import { Observable } from 'rxjs/internal/Observable';
-import { GridDataResult, PageChangeEvent, PagerPosition, PagerType } from '@progress/kendo-angular-grid';
-import { KENDO_GRID, RowArgs, SelectableSettings, ColumnComponent } from '@progress/kendo-angular-grid';
+import { PagerPosition, PagerType } from '@progress/kendo-angular-grid';
+import { KENDO_GRID, ColumnComponent } from '@progress/kendo-angular-grid';
 import { KENDO_POPUP } from '@progress/kendo-angular-popup';
 import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
 import { LabelModule } from '@progress/kendo-angular-label';
@@ -16,7 +14,7 @@ import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 @Component({
   selector: 'app-users-list',
   standalone: true,
-  imports: [UserDetailsComponent, FormsModule, NgIf, NgFor,
+  imports: [UserDetailsComponent, FormsModule,
     KENDO_GRID, KENDO_POPUP, ColumnComponent, KENDO_BUTTONS, LabelModule,
     KENDO_DROPDOWNS, KENDO_INPUTS],
   templateUrl: './users-list.component.html',

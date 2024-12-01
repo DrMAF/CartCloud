@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { User } from '../../../shared/models/user.model';
 import { UserService } from '../../../shared/services/user.service';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
   standalone: true,
-  imports: [FormsModule, NgIf, NgFor, KENDO_INPUTS, LabelModule, KENDO_BUTTONS],
+  imports: [FormsModule, NgIf, KENDO_INPUTS, LabelModule, KENDO_BUTTONS],
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.css'
 })
