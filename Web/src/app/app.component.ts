@@ -5,11 +5,12 @@ import { KENDO_NAVIGATION } from '@progress/kendo-angular-navigation';
 import { KENDO_ICONS, KENDO_SVGICON } from '@progress/kendo-angular-icons';
 import { KENDO_INDICATORS } from '@progress/kendo-angular-indicators';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule,
+  imports: [RouterOutlet, RouterModule, DashboardComponent,
     KENDO_NAVIGATION, KENDO_ICONS, KENDO_SVGICON, KENDO_INDICATORS, KENDO_LAYOUT],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
