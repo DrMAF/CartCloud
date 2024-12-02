@@ -28,10 +28,12 @@ export class LoginComponent implements AfterViewInit {
   }
 
   login() {
-    this.loginService.login(new LoginRequest(this.loginForm.value)).subscribe(e => {
-      if (e.success) {
-        this.loginService.setToken(e.token);
-        this.router.navigate(["Customers"]);
+    this.loginService.login(new LoginRequest(this.loginForm.value)).subscribe(result => {
+      console.log("result: ", result);
+
+      if (result.succeeded) {
+        this.loginService.setToken(result.token);
+        this.router.navigate(["chart"]);
       }
       else {
         this.inValidLogin = true;

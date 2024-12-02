@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { CommonModule } from '@angular/common';
 import { BodyComponent } from '../body/body.component';
+import { UsersService } from '../services/users.service';
 
 
 interface SideNavToggle {
@@ -25,6 +26,12 @@ export class DashboardComponent {
   dashoboarshow= false;
   isSideNavCollapsed = false;
   screenWidth = 0;
+
+  isAuthenticated = false;
+
+  constructor(private userService: UsersService) {
+    this.isAuthenticated = this.userService.isAuthenticated();
+  }
 
   onToggleSideNav(data: SideNavToggle): void {
     this.screenWidth = data.screenWidth;

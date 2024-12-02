@@ -1,6 +1,6 @@
-export type LoginResponse= {
-    success: boolean
-    guid: string
-    token: string
-    expiration:string
-  }
+export type LoginResponse = {
+  succeeded: boolean
+  guid: string
+  token: string
+  expiration: string
+}

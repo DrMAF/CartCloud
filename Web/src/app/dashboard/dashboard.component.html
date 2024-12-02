@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-sidebar (onToggleSideNav)="onToggleSideNav($event)">
+<app-sidebar *ngIf="isAuthenticated" (onToggleSideNav)="onToggleSideNav($event)">
 </app-sidebar>
 <app-body [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth">
 </app-body>

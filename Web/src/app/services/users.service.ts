@@ -14,7 +14,12 @@ const baseUrl = environment.APIUrl + "/users";
 
 export class UsersService {
   isLoggedIn = false;
+
   constructor(private http: HttpClient,) { }
+
+  register(registerModel: LoginRequest): Observable<any> {
+    return this.http.post<any>(`${environment.APIUrl}/Users/RegisterUser`, registerModel)
+  }
 
   login(credintials: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${environment.APIUrl}/Users/Login`, credintials)
@@ -45,10 +50,6 @@ export class UsersService {
   //  return this.isLoggedIn;
   //}
 
-  register(registerModel: LoginRequest): Observable<any> {
-    return this.http.post<any>(`${environment.APIUrl}/Users/RegisterUser`, registerModel)
-  }
-
   public isAuthenticated(): boolean {
     let token = localStorage.getItem("authToken");
 
@@ -66,8 +67,6 @@ export class UsersService {
 
     return this.isLoggedIn;
   }
-
-
 
   getAll(search: string = ""): Observable<PaginatedResult<User>> {
     return this.http.get<PaginatedResult<User>>(baseUrl + "?search=" + search);

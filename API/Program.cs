@@ -6,6 +6,7 @@ using StockMarket.Bootstrapper;
 using API.HostedServices;
 using Serilog;
 using CartCloud;
+using Core.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +14,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 string defaultConnection = builder.Configuration.GetConnectionString("DefaultConnection")!;
-
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(defaultConnection));
+
+builder.Services.Configure<JWTSettings>(builder.Configuration.GetSection("JWTSettings"));
 
 builder.Services.AddSwaggerGen();
 

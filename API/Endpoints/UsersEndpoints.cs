@@ -15,6 +15,7 @@ namespace API.Endpoints
             endpoint.MapPost("", CreateUser);
             endpoint.MapPut("", UpdateUser);
             endpoint.MapDelete("", DeleteUser);
+            endpoint.MapPost("login", login);
 
             return endpoint;
         }
@@ -36,7 +37,7 @@ namespace API.Endpoints
             return Results.Ok(user);
         }
 
-        private static async Task<IResult> CreateUser(IUserService userService, [FromBody] UserModel model)
+        private static async Task<IResult> CreateUser(IUserService userService, [FromBody] CreateUserViewModel model)
         {
             IdentityResult res = await userService.CreateUserAsync(model);
 
@@ -51,7 +52,7 @@ namespace API.Endpoints
         }
 
 
-        private static async Task<IResult> UpdateUser(IUserService userService, [FromBody] UserModel model)
+        private static async Task<IResult> UpdateUser(IUserService userService, [FromBody] CreateUserViewModel model)
         {
             if (model.Id <= 0)
             {
@@ -78,6 +79,25 @@ namespace API.Endpoints
             }
 
             var res = await userService.DeleteUserAsync(userId);
+
+            if (res.Succeeded)
+            {
+                return Results.Ok(res);
+            }
+            else
+            {
+                return Results.BadRequest(res);
+            }
+        }
+
+        private static async Task<IResult> login(IUserService userService, LoginVM model)
+        {
+            //if (model.)
+            //{
+            //    return Results.BadRequest("Id required");
+            //}
+
+            var res = await userService.LoginAsync(model);
 
             if (res.Succeeded)
             {

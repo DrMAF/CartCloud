@@ -2,7 +2,7 @@
 
 namespace Core.ViewModels
 {
-    public record UserModel
+    public record CreateUserViewModel
     {
         public int Id { get; set; }
         [Required]
@@ -14,5 +14,7 @@ namespace Core.ViewModels
         public string Email { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
+        [Required]
+        public string Password { get; set; }
     }
 }
