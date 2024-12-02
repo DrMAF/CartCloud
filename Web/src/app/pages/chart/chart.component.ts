@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FoodService } from '../services/services';
+import { FoodService } from '../../services/charts.service';
 import { Chart, registerables } from 'chart.js';
+
 Chart.register(...registerables);
 
 @Component({
@@ -8,24 +9,18 @@ Chart.register(...registerables);
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css'],
 })
+
 export class ChartpageComponent {
   chartdata: any;
-
   labeldata: any[] = [];
   realdata: any[] = [];
   colordata: any[] = [];
-
   todayList: any[] = [];
   res: any;
-  constructor(private foodService: FoodService) {}
 
-  Renderchart(
-    labeldata: any,
-    maindata: any,
+  constructor(private foodService: FoodService) { }
 
-    type: any,
-    id: any
-  ) {
+  Renderchart(labeldata: any, maindata: any, type: any, id: any) {
     const myChart = new Chart(id, {
       type: type,
       data: {
@@ -34,7 +29,7 @@ export class ChartpageComponent {
           {
             label: '# of Votes',
             data: maindata,
-            backgroundColor:'rgba(255, 99, 132, 0.2), ' ,
+            backgroundColor: 'rgba(255, 99, 132, 0.2), ',
             borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 1,
           },
@@ -52,9 +47,7 @@ export class ChartpageComponent {
 
   ngOnInit(): void {
     this.todayList = this.foodService.gettodayitem();
-    this.res = this.foodService.calculateMacroNutrientPercentage(
-      this.todayList
-    );
+    this.res = this.foodService.calculateMacroNutrientPercentage(this.todayList);
 
     this.chartdata = this.res;
 
@@ -67,7 +60,6 @@ export class ChartpageComponent {
           this.chartdata[i].carbohydratePercentage,
           this.chartdata[i].proteinPercentage
         );
-
       }
     }
 

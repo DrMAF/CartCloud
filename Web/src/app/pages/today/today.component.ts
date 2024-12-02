@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FoodService } from '../services/services';
+import { FoodService } from '../../services/charts.service';
 import { NgForOf } from '@angular/common';
 
 @Component({

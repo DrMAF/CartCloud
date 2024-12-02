@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FoodService } from '../services/services';
+import { FoodService } from '../../services/charts.service';
 import { NgFor } from '@angular/common';
 
 export interface FoodItem {

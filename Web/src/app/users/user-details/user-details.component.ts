@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { User } from '../../../shared/models/user.model';
-import { UserService } from '../../../shared/services/user.service';
+import { User } from '../../models/user.model';
+import { UsersService } from '../../services/users.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
@@ -27,7 +27,7 @@ export class UserDetailsComponent {
     phoneNumber: ""
   };
 
-  constructor(private userService: UserService,
+  constructor(private userService: UsersService,
     private route: ActivatedRoute,
     private router: Router) { }
 

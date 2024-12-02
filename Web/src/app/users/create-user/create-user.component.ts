@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { User } from '../../../shared/models/user.model';
-import { UserService } from '../../../shared/services/user.service';
+import { User } from '../../models/user.model';
+import { UsersService } from '../../services/users.service';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
@@ -29,7 +29,7 @@ export class CreateUserComponent {
   editMode = false;
   submitted = false;
   error = "";
-  constructor(private userService: UserService,
+  constructor(private userService: UsersService,
     private route: ActivatedRoute,
     private router: Router) { }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PaginatedResult, User } from '../../../shared/models/user.model';
-import { UserService } from '../../../shared/services/user.service';
+import { PaginatedResult, User } from '../../models/user.model';
+import { UsersService } from '../../services/users.service';
 import { FormsModule } from '@angular/forms';
 import { UserDetailsComponent } from '../user-details/user-details.component';
 import { PagerPosition, PagerType } from '@progress/kendo-angular-grid';
@@ -51,7 +51,7 @@ export class UsersListComponent implements OnInit {
   pagerTypes = ["numeric", "input"];
   type: PagerType = "numeric";
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
     this.retrieveUsers();
